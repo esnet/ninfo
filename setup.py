@@ -7,7 +7,7 @@ setup(name='ninfo',
     include_package_data=True,
     install_requires=[
         "Mako",
-        "python3-memcached",
+        "python-memcached",
         "ieeemac",
         "IPy",
     ],
