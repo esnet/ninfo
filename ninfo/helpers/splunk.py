@@ -6,6 +6,7 @@ web = splunk-head.example.com
 port = 8089
 username = infosearch
 password = password_for_info_to_use
+verify = True|False for SSL cert verification (optional, default True)
 """
 
 from ninfo import PluginBase
@@ -32,7 +33,7 @@ class SplunkBase(PluginBase):
         port = sc['port']
         username = sc['username']
         password = sc['password']
-        verify = sc.get('verify', True)
+        verify = sc.get('verify', "True") == "True"
         self.s = self.client.connect(host=host, port=port, username=username, password=password, verify=verify)
 
     def do_search(self, query):
