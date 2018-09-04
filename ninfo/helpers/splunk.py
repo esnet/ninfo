@@ -32,7 +32,8 @@ class SplunkBase(PluginBase):
         port = sc['port']
         username = sc['username']
         password = sc['password']
-        self.s = self.client.connect(host=host, port=port, username=username, password=password)
+        verify = sc.get('verify', True)
+        self.s = self.client.connect(host=host, port=port, username=username, password=password, verify=verify)
 
     def do_search(self, query):
         self.connect()
